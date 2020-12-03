@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('express-handlebars');
+const data = require('./data');
 var app = express();
 
 app.use(express.static(__dirname))
@@ -9,7 +10,7 @@ app.engine('hbs', hbs({
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/views/layouts',
     partialsDir: __dirname + '/views/partials',
-}))
+}));
 
 
 app.set('view engine', 'hbs');
@@ -84,5 +85,17 @@ app.get('/task3.htm', function(req, res) {
 })
 
 
-app.listen((process.env.PORT || 5000), () => {
+app.get('/task4.htm', function(req,res){
+  res.locals.list = data.zodiacs;
+  res.render('task4')
+})
+
+
+app.get('/task4-details.htm', function(req,res){
+  res.locals.zodiac = data.zodiacs[req.query.id];
+  res.render('task4-details');
+})
+
+app.listen(5000, () => {
+  console.log("Listening on port: 5000");
 })
