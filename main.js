@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 const data = require('./data');
 var app = express();
 
@@ -90,7 +91,6 @@ app.get('/task4.htm', function(req,res){
   res.render('task4')
 })
 
-
 app.get('/task4-details.htm', function(req,res){
   res.locals.zodiac = data.zodiacs[req.query.id];
   res.render('task4-details');
@@ -99,3 +99,23 @@ app.get('/task4-details.htm', function(req,res){
 app.listen(5000, () => {
   console.log("Listening on port: 5000");
 })
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+app.post('/salary', (req, res) => {
+  var task1_data = req.body
+  var salary = task1_data.salary
+  var res_task1 = {
+    NEC: parseInt(salary*0.55), 
+    FFA: parseInt(salary*0.1), 
+    EDU: parseInt(salary*0.1), 
+    LTSS: parseInt(salary*0.1), 
+    PLAY: parseInt(salary*0.1), 
+    GIVE: parseInt(salary*0.05)
+  }
+  console.log('Got body:', salary);
+  res.render('task1', res_task1);
+});
