@@ -1,7 +1,13 @@
 <ul class="list-group" id="categories">
     {{#each categories}}
-        <li class="list-group-item">
-            <a href="#" id="{{title}}-link" class="tablinks" onclick="openLabel(event, {{id}})">{{title}}</a>
-        </li>            
+        {{#ifCond id 1}}
+        <li class="list-group-item tablinks active"onclick="openLabel(event, `{{title}}`)">
+            <a href="#" id="{{title}}-link">{{title}}</a>
+        </li>
+        {{else}}
+        <li class="list-group-item tablinks"onclick="openLabel(event, `{{title}}`)">
+            <a href="#" id="{{title}}-link">{{title}}</a>
+        </li>
+        {{/ifCond}}            
     {{/each}}
 </ul>

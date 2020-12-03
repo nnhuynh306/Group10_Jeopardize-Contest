@@ -1,8 +1,12 @@
 {{#each categories}}
-    <div id="{{id}}" class="tabcontent">
+    {{#ifCond id 1}}
+        <div id="{{title}}" class="tabcontent active">
+    {{else}}
+        <div id="{{title}}" class="tabcontent">
+    {{/ifCond}}
         {{#each ../products}}
         {{#ifCond category ../id}}
-            <div class="item col-xs-4 col-lg-4" id={{title}}>
+            <div class="item col-xs-4 col-lg-4">
                 <div class="thumbnail">
                     <img class="group list-group-image" src="/images/{{imagePath}}" alt="">
                     <div class="caption">
@@ -13,7 +17,7 @@
                                 <p class="lead">{{price}}</p>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn btn-success" href="#">Add to cart {{../id}}</a>
+                                <a class="btn btn-success" href="#">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -21,7 +25,7 @@
             </div>  
         {{/ifCond}}
         {{/each}}
-    </div>
+        </div>
 {{/each}}
 
 
