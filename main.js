@@ -92,7 +92,7 @@ app.get('/task4.htm', function(req,res){
 
 
 app.get('/task4-details.htm', function(req,res){
-  res.locals.list = data.zodiacs;
+  res.locals.zodiac = data.zodiacs[req.query.id];
   res.render('task4-details');
 })
 
