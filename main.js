@@ -96,10 +96,6 @@ app.get('/task4-details.htm', function(req,res){
   res.render('task4-details');
 })
 
-app.listen(5000, () => {
-  console.log("Listening on port: 5000");
-})
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -119,3 +115,8 @@ app.post('/salary', (req, res) => {
   console.log('Got body:', salary);
   res.render('task1', res_task1);
 });
+
+
+app.listen((process.env.PORT || 5000), () => {
+
+})

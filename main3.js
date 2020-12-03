@@ -4,11 +4,22 @@ var app = express();
 
 app.use(express.static(__dirname))
 
+
+var ifCond = function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+};
+
 app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/views/layouts',
     partialsDir: __dirname + '/views/partials',
+    helpers: {
+      ifCond: ifCond,
+    }
 }))
 
 
