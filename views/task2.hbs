@@ -1,0 +1,32 @@
+
+    <!--header-->
+
+        <!--/header-->
+        <!--contain-->
+        <div class="container">
+            <h1 class="text-center">Inspiring Quotes</h1>
+        </div>
+        <div class="container">
+            <div class="row destacados">
+                {{#each emotions}}
+                <div class="col-md-3">
+                    <div>
+                        <a href="/task2/{{title}}">
+                            <img src="/images{{imagePath}}" alt="{{ title }}" class="img-circle img-thumbnail">
+                            <h2>{{title}}</h2>
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row text-center">
+                <img id="img" class="img-thumbnail" src='/images{{quotePath}}' />
+            </div>
+        </div>
+        <!--/contain-->
+        <!--footer-->
+        <footer class="container-fluid text-center">
+            Copyright &copy; 2020 by 18127223 - Nguyễn Phúc Thịnh
+        </footer>
+        <!--/footer-->
+        <script> document.title = "Inspiring Quotes"</script>
