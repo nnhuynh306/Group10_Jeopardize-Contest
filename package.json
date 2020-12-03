@@ -1,0 +1,23 @@
+{
+  "name": "group10_jeopardize-contest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnhuynh306/Group10_Jeopardize-Contest.git"
+  },
+  "author": "Group 10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nnhuynh306/Group10_Jeopardize-Contest/issues"
+  },
+  "homepage": "https://github.com/nnhuynh306/Group10_Jeopardize-Contest#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "handlebars": "^4.7.6"
+  }
+}
