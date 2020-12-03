@@ -2,7 +2,7 @@
   "name": "group10_jeopardize-contest",
   "version": "1.0.0",
   "description": "",
-  "main": "data.js",
+  "main": "main.js",
   "scripts": {
     "test": "node main.js"
   },

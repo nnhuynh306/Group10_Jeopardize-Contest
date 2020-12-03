@@ -203,3 +203,6 @@ var zodiacs = [
 ];
 
 exports.zodiacs = zodiacs;
+exports.categories = categories;
+exports.emotions = emotions;
+exports.products = products;

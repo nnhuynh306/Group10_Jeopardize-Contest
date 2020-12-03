@@ -1,9 +1,5 @@
 {{#each categories}}
-    {{#ifCond id 1}}
-        <div id="{{title}}" class="tabcontent active">
-    {{else}}
-        <div id="{{title}}" class="tabcontent">
-    {{/ifCond}}
+    <div id="{{title}}" class="tabcontent active">
         {{#each ../products}}
         {{#ifCond category ../id}}
             <div class="item col-xs-4 col-lg-4">
@@ -25,7 +21,7 @@
             </div>  
         {{/ifCond}}
         {{/each}}
-        </div>
+    </div>
 {{/each}}
 
 
