@@ -1,6 +1,5 @@
 const express = require('express');
 const hbs = require('express-handlebars');
-var bodyParser = require('body-parser');
 const data = require('./data');
 var app = express();
 
@@ -34,62 +33,14 @@ app.get('/index.htm', function(req, res) {
   res.render('index');
 })
 
-app.get('/task1.htm', function(req, res) {
-  res.render('task1');
-})
+app.use('/task1', require('./routes/task1Routes.js'))
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/task2', require('./routes/task2Routes.js'))
 
-app.post('/salary', (req, res) => {
-  var task1_data = req.body
-  var salary = task1_data.salary
-  var res_task1 = {
-    NEC: parseInt(salary*0.55), 
-    FFA: parseInt(salary*0.1), 
-    EDU: parseInt(salary*0.1), 
-    LTSS: parseInt(salary*0.1), 
-    PLAY: parseInt(salary*0.1), 
-    GIVE: parseInt(salary*0.05)
-  }
-  console.log('Got body:', salary);
-  res.render('task1', res_task1);
-});
+app.use('/task3', require('./routes/task3Routes.js'))
 
+app.use('/task4', require('./routes/task4Routes.js'))
 
-app.get('/task2', function(req, res) {
-  res.locals.emotions = data.emotions;
-  res.locals.quotePath ='/task2/default.jpg';
-  res.render('task2')
-})
-
-app.get('/task2/:title', function(req, res) {
-  res.locals.emotions = data.emotions;
-  for (let emotion of data.emotions){
-      if (emotion.title === req.params.title){
-        res.locals.quotePath = emotion.quotePath;
-          break;
-      }
-  }
-  res.render('task2')
-})
-
-
-app.get('/task3', function(req, res) {
-    res.locals.products = data.products
-    res.locals.categories = data.categories
-    res.render('task3');
-})
-
-
-app.get('/task4.htm', function(req,res){
-  res.locals.list = data.zodiacs;
-  res.render('task4')
-})
-
-app.get('/task4-details.htm', function(req,res){
-  res.locals.zodiac = data.zodiacs[req.query.id];
-  res.render('task4-details');
-})
 
 app.listen((process.env.PORT || 5000), () => {
 
